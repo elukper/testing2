@@ -1,0 +1,50 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="luka_p (generated)" id="1554124317594-1">
+        <createSequence sequenceName="general"/>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1554124317594-2">
+        <createTable tableName="another_table">
+            <column name="ID" type="NUMBER(10, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nickname" type="VARCHAR2(255 CHAR)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1554124317594-3">
+        <createTable tableName="base_table">
+            <column name="ID" type="NUMBER(10, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="create_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_date" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1554124317594-4">
+        <createIndex indexName="IX_another_tablePK" tableName="another_table" unique="true">
+            <column name="ID"/>
+        </createIndex>
+        <addPrimaryKey columnNames="ID" constraintName="another_tablePK" forIndexName="IX_another_tablePK" tableName="another_table"/>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1554124317594-5">
+        <createIndex indexName="IX_base_tablePK" tableName="base_table" unique="true">
+            <column name="ID"/>
+        </createIndex>
+        <addPrimaryKey columnNames="ID" constraintName="base_tablePK" forIndexName="IX_base_tablePK" tableName="base_table"/>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1554535781336-1">
+        <alterSequence sequenceName="GENERAL"/>
+        <alterSequence sequenceName="GENERAL"/>
+        <alterSequence sequenceName="GENERAL"/>
+        <alterSequence sequenceName="GENERAL"/>
+        <alterSequence sequenceName="GENERAL"/>
+    </changeSet>
+</databaseChangeLog>

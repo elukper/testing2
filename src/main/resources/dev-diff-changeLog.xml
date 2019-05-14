@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="luka_p (generated)" id="1557847398912-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1557847398912-2">
+        <createTable tableName="ROLES">
+            <column autoIncrement="true" name="ID" type="NUMBER(10, 0)">
+                <constraints primaryKey="true" primaryKeyName="ROLESPK"/>
+            </column>
+            <column name="NAME" type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1557847398912-3">
+        <createTable tableName="USERS">
+            <column autoIncrement="true" name="ID" type="NUMBER(10, 0)">
+                <constraints primaryKey="true" primaryKeyName="USERSPK"/>
+            </column>
+            <column name="ENABLED" type="NUMBER(1, 0)"/>
+            <column name="EXPIRED" type="NUMBER(1, 0)"/>
+            <column name="LOCKED" type="NUMBER(1, 0)"/>
+            <column name="PASSWORD" type="VARCHAR2(255 CHAR)"/>
+            <column name="USERNAME" type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1557847398912-4">
+        <createTable tableName="USER_ROLES">
+            <column name="USERNAME" type="VARCHAR2(255 CHAR)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="ROLE" type="VARCHAR2(255 CHAR)">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1557847398912-5">
+        <createTable tableName="another_table">
+            <column autoIncrement="true" name="ID" type="NUMBER(10, 0)">
+                <constraints primaryKey="true" primaryKeyName="another_tablePK"/>
+            </column>
+            <column name="nickname" type="VARCHAR2(255 CHAR)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1557847398912-6">
+        <createTable tableName="base_table">
+            <column autoIncrement="true" name="ID" type="NUMBER(10, 0)">
+                <constraints primaryKey="true" primaryKeyName="base_tablePK"/>
+            </column>
+            <column name="create_date" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR2(255 CHAR)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="update_date" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1557847398912-7">
+        <addUniqueConstraint columnNames="USERNAME" constraintName="UK_h6k33r31i2nvrri9lok4r163j" tableName="USERS"/>
+    </changeSet>
+    <changeSet author="luka_p (generated)" id="1557847398912-8">
+        <addUniqueConstraint columnNames="NAME" constraintName="UK_lpdecwdy9vmiwufr3k4a2quus" tableName="ROLES"/>
+    </changeSet>
+</databaseChangeLog>
